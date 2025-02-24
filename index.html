@@ -686,15 +686,21 @@ How many times did you try Artemis: (count: (history:), &quot;aite&quot;)</tw-pa
 &lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=G-J80VRTVG5N&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
   window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  
-  // Wait until gtag is loaded before sending data
+  function gtag() { dataLayer.push(arguments); }
+
+  // Ensure GA4 is properly initialized before using it
   function setupGA() {
-    gtag(&#39;js&#39;, new Date());
-    gtag(&#39;config&#39;, &#39;G-J80VRTVG5N&#39;);
+    if (typeof gtag === &quot;function&quot;) {
+      gtag(&#39;js&#39;, new Date());
+      gtag(&#39;config&#39;, &#39;G-J80VRTVG5N&#39;);
+      console.log(&quot;✅ Google Analytics Loaded!&quot;);
+    } else {
+      console.warn(&quot;⚠️ Google Analytics not ready yet. Retrying...&quot;);
+      setTimeout(setupGA, 500); // Retry every 500ms until GA4 loads
+    }
   }
 
-  // Check if the script is already loaded
+  // Wait for the document to fully load before initializing GA
   if (document.readyState === &quot;complete&quot;) {
     setupGA();
   } else {
@@ -703,13 +709,20 @@ How many times did you try Artemis: (count: (history:), &quot;aite&quot;)</tw-pa
 &lt;/script&gt;
 
 [[hi]]</tw-passagedata><tw-passagedata pid="82" name="hi" tags="" position="475,275" size="100,100">&lt;script&gt;
-  if (typeof gtag === &quot;function&quot;) {
-    gtag(&#39;event&#39;, &#39;passage_view&#39;, {
-      &#39;passage_name&#39;: &#39;&quot; + (passage:) + &quot;&#39;
-    });
-  } else {
-    console.warn(&quot;Google Analytics not yet loaded.&quot;);
+  function trackPassageView() {
+    if (typeof gtag === &quot;function&quot;) {
+      gtag(&#39;event&#39;, &#39;passage_view&#39;, {
+        &#39;passage_name&#39;: &#39;&quot; + (passage:) + &quot;&#39;
+      });
+      console.log(&quot;✅ Passage tracked:&quot;, (passage:));
+    } else {
+      console.warn(&quot;⚠️ Google Analytics not loaded yet. Retrying...&quot;);
+      setTimeout(trackPassageView, 500); // Retry every 500ms
+    }
   }
+
+  // Run tracking after the passage loads
+  document.addEventListener(&quot;DOMContentLoaded&quot;, trackPassageView);
 &lt;/script&gt;
 test</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
