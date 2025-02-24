@@ -682,31 +682,26 @@ How many times did you try Poseidon: (count: (history:), &quot;moke&quot;)
 How many times did you try Hades: (count: (history:), &quot;doke&quot;)
 
 How many times did you try Artemis: (count: (history:), &quot;aite&quot;)</tw-passagedata><tw-passagedata pid="81" name="Data Test" tags="" position="475,150" size="100,100">&lt;!-- Google tag (gtag.js) --&gt;
-
 &lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=G-J80VRTVG5N&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
   window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
+  function gtag(){ dataLayer.push(arguments); }
 
-  // Ensure GA4 is properly initialized before using it
+  // Initialize Google Analytics without `eval()`
   function setupGA() {
     if (typeof gtag === &quot;function&quot;) {
       gtag(&#39;js&#39;, new Date());
-      gtag(&#39;config&#39;, &#39;G-J80VRTVG5N&#39;);
-      console.log(&quot;✅ Google Analytics Loaded!&quot;);
+      gtag(&#39;config&#39;, &#39;G-J80VRTVG5N&#39;, { &#39;send_page_view&#39;: false });
+      console.log(&quot;✅ Google Analytics Loaded Successfully!&quot;);
     } else {
       console.warn(&quot;⚠️ Google Analytics not ready yet. Retrying...&quot;);
-      setTimeout(setupGA, 500); // Retry every 500ms until GA4 loads
+      setTimeout(setupGA, 1000);
     }
   }
 
-  // Wait for the document to fully load before initializing GA
-  if (document.readyState === &quot;complete&quot;) {
-    setupGA();
-  } else {
-    window.addEventListener(&quot;load&quot;, setupGA);
-  }
+  document.addEventListener(&quot;DOMContentLoaded&quot;, setupGA);
 &lt;/script&gt;
+
 
 [[hi]]</tw-passagedata><tw-passagedata pid="82" name="hi" tags="" position="475,275" size="100,100">&lt;script&gt;
   function trackPassageView() {
