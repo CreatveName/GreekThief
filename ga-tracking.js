@@ -10,7 +10,7 @@
 
   gaScript.onload = function() {
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX', { 'send_page_view': false });
+    gtag('config', 'G-J80VRTVG5N', { 'send_page_view': false });
     console.log("✅ Google Analytics Loaded!");
   };
 
