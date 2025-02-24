@@ -704,21 +704,15 @@ How many times did you try Artemis: (count: (history:), &quot;aite&quot;)</tw-pa
 
 
 [[hi]]</tw-passagedata><tw-passagedata pid="82" name="hi" tags="" position="475,275" size="100,100">&lt;script&gt;
-  document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
-    var passageElement = document.querySelector(&#39;tw-passage&#39;);
-    if (passageElement) {
-      var passageName = passageElement.getAttribute(&#39;aria-label&#39;);
-      if (typeof gtag === &quot;function&quot;) {
-        gtag(&#39;event&#39;, &#39;passage_view&#39;, {
-          &#39;passage_name&#39;: passageName
-        });
-        console.log(&quot;✅ Passage tracked:&quot;, passageName);
-      } else {
-        console.warn(&quot;⚠️ Google Analytics not loaded yet. Retrying...&quot;);
-        setTimeout(arguments.callee, 500);
-      }
-    }
-  });
+document.addEventListener(&quot;passageend&quot;, function() {
+  var passageName = document.querySelector(&#39;tw-passage&#39;).getAttribute(&#39;aria-label&#39;);
+  if (typeof gtag === &quot;function&quot;) {
+    gtag(&#39;event&#39;, &#39;passage_view&#39;, {
+      &#39;passage_name&#39;: passageName
+    });
+    console.log(&quot;✅ Passage tracked:&quot;, passageName);
+  }
+});
 &lt;/script&gt;
 
 
