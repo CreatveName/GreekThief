@@ -687,19 +687,13 @@ How many times did you try Artemis: (count: (history:), &quot;aite&quot;)</tw-pa
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag(&#39;js&#39;, new Date());
-  gtag(&#39;config&#39;, &#39;G-J80VRTVG5N&#39;, { &#39;cookie_flags&#39;: &#39;SameSite=None; Secure&#39; });
+
+  gtag(&#39;config&#39;, &#39;G-J80VRTVG5N&#39;);
 &lt;/script&gt;
 
 (set: $GA to (passage: &quot;Data Test&quot;))
 
-&lt;script&gt;
-  document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
-    var passageName = document.querySelector(&#39;tw-passage&#39;).getAttribute(&#39;aria-label&#39;);
-    gtag(&#39;event&#39;, &#39;passage_view&#39;, {
-      &#39;passage_name&#39;: passageName
-    });
-  });
-&lt;/script&gt;</tw-passagedata></tw-storydata>
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
