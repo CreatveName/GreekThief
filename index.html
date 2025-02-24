@@ -682,11 +682,13 @@ How many times did you try Poseidon: (count: (history:), &quot;moke&quot;)
 How many times did you try Hades: (count: (history:), &quot;doke&quot;)
 
 How many times did you try Artemis: (count: (history:), &quot;aite&quot;)</tw-passagedata><tw-passagedata pid="81" name="Data Test" tags="" position="475,150" size="100,100">&lt;!-- Google tag (gtag.js) --&gt;
+
 &lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=G-J80VRTVG5N&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
   window.dataLayer = window.dataLayer || [];
   function gtag(){ dataLayer.push(arguments); }
 
+  // Initialize Google Analytics without `eval()`
   function setupGA() {
     if (typeof gtag === &quot;function&quot;) {
       gtag(&#39;js&#39;, new Date());
