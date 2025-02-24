@@ -682,23 +682,35 @@ How many times did you try Poseidon: (count: (history:), &quot;moke&quot;)
 How many times did you try Hades: (count: (history:), &quot;doke&quot;)
 
 How many times did you try Artemis: (count: (history:), &quot;aite&quot;)</tw-passagedata><tw-passagedata pid="81" name="Data Test" tags="" position="475,150" size="100,100">&lt;!-- Google tag (gtag.js) --&gt;
+
 &lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=G-J80VRTVG5N&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag(&#39;js&#39;, new Date());
+  function gtag(){ dataLayer.push(arguments); }
+  
+  // Wait until gtag is loaded before sending data
+  function setupGA() {
+    gtag(&#39;js&#39;, new Date());
+    gtag(&#39;config&#39;, &#39;G-J80VRTVG5N&#39;);
+  }
 
-  gtag(&#39;config&#39;, &#39;G-J80VRTVG5N&#39;);
+  // Check if the script is already loaded
+  if (document.readyState === &quot;complete&quot;) {
+    setupGA();
+  } else {
+    window.addEventListener(&quot;load&quot;, setupGA);
+  }
 &lt;/script&gt;
-
-(set: $GA to (passage: &quot;Data Test&quot;))
 
 &lt;script&gt;
-  gtag(&#39;event&#39;, &#39;passage_view&#39;, {
-    &#39;passage_name&#39;: &#39;&quot; + (passage:) + &quot;&#39;
-  });
-&lt;/script&gt;
-</tw-passagedata></tw-storydata>
+  if (typeof gtag === &quot;function&quot;) {
+    gtag(&#39;event&#39;, &#39;passage_view&#39;, {
+      &#39;passage_name&#39;: &#39;&quot; + (passage:) + &quot;&#39;
+    });
+  } else {
+    console.warn(&quot;Google Analytics not yet loaded.&quot;);
+  }
+&lt;/script&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
