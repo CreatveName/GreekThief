@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play That Time I Got Reincarnated As The Errand Boy for Cronus, but I was the #1 Best Thief in my Past Life?!?!?!?.</tw-noscript></noscript></tw-story>
-<tw-storydata name="That Time I Got Reincarnated As The Errand Boy for Cronus, but I was the #1 Best Thief in my Past Life?!?!?!?" startnode="81" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="280D54D2-06CC-4D70-B010-1A41BFF7D046" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Main Menu" tags="" position="875,150" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[(text-style:&quot;bold&quot;,&quot;italic&quot;,&quot;buoy&quot;)[That Time I Got Reincarnated As The Errand Boy for Hades, but I was the #1 Best Thief in my Past Life?!?!?!?]]
+<tw-storydata name="That Time I Got Reincarnated As The Errand Boy for Cronus, but I was the #1 Best Thief in my Past Life?!?!?!?" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="280D54D2-06CC-4D70-B010-1A41BFF7D046" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Main Menu" tags="" position="875,150" size="100,100">(align:&quot;=&gt;&lt;=&quot;)+(box:&quot;X&quot;)[(text-style:&quot;bold&quot;,&quot;italic&quot;,&quot;buoy&quot;)[That Time I Got Reincarnated As The Errand Boy for Hades, but I was the #1 Best Thief in my Past Life?!?!?!?]]
 
 [&lt;img src = &quot;https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F78eaebd3-96c8-46d6-9f0d-69c4e0ab04fd_1000x511.jpeg&quot; alt = &quot;A photo of buff looking gods looking at each other. = &quot;50%&quot;&gt;]
 
@@ -682,19 +682,26 @@ How many times did you try Poseidon: (count: (history:), &quot;moke&quot;)
 How many times did you try Hades: (count: (history:), &quot;doke&quot;)
 
 How many times did you try Artemis: (count: (history:), &quot;aite&quot;)</tw-passagedata><tw-passagedata pid="81" name="Data Test" tags="" position="475,150" size="100,100">&lt;!-- Google tag (gtag.js) --&gt;
+&lt;script async src=&quot;https://www.googletagmanager.com/gtag/js?id=G-HY0ZJ24DXL&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag(&#39;js&#39;, new Date());
 
-&lt;script src=&quot;https://creatvename.github.io/GreekThief/ga-tracking.js&quot;&gt;&lt;/script&gt;
+  gtag(&#39;config&#39;, &#39;G-HY0ZJ24DXL&#39;);
+&lt;/script&gt;
 
 [[hi]]</tw-passagedata><tw-passagedata pid="82" name="hi" tags="" position="475,275" size="100,100">&lt;script&gt;
-document.addEventListener(&quot;passageend&quot;, function() {
-  var passageName = document.querySelector(&#39;tw-passage&#39;).getAttribute(&#39;aria-label&#39;);
-  if (typeof gtag === &quot;function&quot;) {
-    gtag(&#39;event&#39;, &#39;passage_view&#39;, {
-      &#39;passage_name&#39;: passageName
-    });
-    console.log(&quot;✅ Passage tracked:&quot;, passageName);
-  }
-});
+  document.addEventListener(&quot;passageend&quot;, function() {
+    var passageElement = document.querySelector(&quot;tw-passage&quot;);
+    if (passageElement) {
+      var passageName = passageElement.getAttribute(&quot;aria-label&quot;);
+      gtag(&#39;event&#39;, &#39;passage_view&#39;, {
+        &#39;passage_name&#39;: passageName
+      });
+      console.log(&quot;✅ Passage tracked:&quot;, passageName);
+    }
+  });
 &lt;/script&gt;
 
 
