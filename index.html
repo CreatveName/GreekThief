@@ -704,21 +704,24 @@ How many times did you try Artemis: (count: (history:), &quot;aite&quot;)</tw-pa
 
 
 [[hi]]</tw-passagedata><tw-passagedata pid="82" name="hi" tags="" position="475,275" size="100,100">&lt;script&gt;
-  function trackPassageView() {
-    if (typeof gtag === &quot;function&quot;) {
-      gtag(&#39;event&#39;, &#39;passage_view&#39;, {
-        &#39;passage_name&#39;: &#39;&quot; + (passage:) + &quot;&#39;
-      });
-      console.log(&quot;✅ Passage tracked:&quot;, (passage:));
-    } else {
-      console.warn(&quot;⚠️ Google Analytics not loaded yet. Retrying...&quot;);
-      setTimeout(trackPassageView, 500); // Retry every 500ms
+  document.addEventListener(&quot;DOMContentLoaded&quot;, function() {
+    var passageElement = document.querySelector(&#39;tw-passage&#39;);
+    if (passageElement) {
+      var passageName = passageElement.getAttribute(&#39;aria-label&#39;);
+      if (typeof gtag === &quot;function&quot;) {
+        gtag(&#39;event&#39;, &#39;passage_view&#39;, {
+          &#39;passage_name&#39;: passageName
+        });
+        console.log(&quot;✅ Passage tracked:&quot;, passageName);
+      } else {
+        console.warn(&quot;⚠️ Google Analytics not loaded yet. Retrying...&quot;);
+        setTimeout(arguments.callee, 500);
+      }
     }
-  }
-
-  // Run tracking after the passage loads
-  document.addEventListener(&quot;DOMContentLoaded&quot;, trackPassageView);
+  });
 &lt;/script&gt;
+
+
 test</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
